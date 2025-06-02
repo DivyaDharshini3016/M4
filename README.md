@@ -117,10 +117,11 @@ int main()
     char a[100];
     int l=0;
     fgets(a,sizeof(a),stdin);
-    while(a[l]!='\0')
+    do
     {
         l++;
     }
+     while(a[l]!='\0');
     printf("%d",l-1);
     return 0;
 }
@@ -154,17 +155,36 @@ Step 8: End the program.
 ## PROGRAM
 ```
 #include <stdio.h>
-#include <string.h>
-int main() {
+int main()
+{
     char str1[100], str2[100];
-    scanf("%s", str1);
-    scanf("%s", str2);
-    if (strcmp(str1, str2) == 0) {
-        printf("strings are same\n");
-    } 
-    else {
-        printf("strings are not same\n");
+    int i = 0, flag = 0;
+    printf("Enter the first string: ");
+    fgets(str1, sizeof(str1), stdin);
+
+    printf("Enter the second string: ");
+    fgets(str2, sizeof(str2), stdin);
+    while (str1[i] != '\0' && str2[i] != '\0') 
+    {
+        if (str1[i] != str2[i])
+        {
+            flag = 1;
+            break;
+        }
+        i++;
     }
+    if (str1[i] != str2[i]) 
+    {
+        flag = 1;
+    }
+
+    if (flag == 0) {
+        printf("Strings are equal.\n");
+    }
+    else {
+        printf("Strings are not equal.\n");
+    }
+
     return 0;
 }
 ```
